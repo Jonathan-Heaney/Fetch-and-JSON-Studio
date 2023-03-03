@@ -6,7 +6,6 @@ window.addEventListener('load', function () {
   ).then(function (response) {
     response.json().then(function (json) {
       const astronauts = json;
-      console.log(astronauts);
 
       for (astronaut of astronauts) {
         const container = document.getElementById('container');
@@ -25,6 +24,7 @@ window.addEventListener('load', function () {
         hoursInSpace.textContent = `Hours in space: ${astronaut.hoursInSpace}`;
         unorderedList.appendChild(hoursInSpace);
         const active = document.createElement('li');
+        active.classList.add(astronaut.active === true ? 'green' : 'red');
         active.textContent = `Active: ${astronaut.active}`;
         unorderedList.appendChild(active);
         const skills = document.createElement('li');
